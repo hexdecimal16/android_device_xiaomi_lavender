@@ -180,7 +180,6 @@ lib/libexmedia.so
 lib/libfb.so
 lib/libfdpp.so
 lib/libfdpp_jni.so
-lib/libfm-hci.so
 lib/libfreetype.so
 lib/libgcanvas.so
 lib/libgifimage.so
@@ -294,7 +293,6 @@ lib/vendor.qti.hardware.data.dynamicdds@1.0.so
 lib/vendor.qti.hardware.data.latency@1.0.so
 lib/vendor.qti.hardware.factory@1.0.so
 lib/vendor.qti.hardware.fingerprint@1.0.so
--lib/vendor.qti.hardware.fm@1.0.so
 lib/vendor.qti.hardware.iop@1.0.so
 lib/vendor.qti.hardware.iop@2.0.so
 lib/vendor.qti.hardware.perf@1.0.so
@@ -397,7 +395,6 @@ lib64/libexmedia.so
 lib64/libfacial_action.so
 lib64/libfdpp.so
 lib64/libfdpp_jni.so
-lib64/libfm-hci.so
 lib64/libhttpserver.so
 lib64/libimscamera_jni.so
 lib64/libimsmedia_jni.so
@@ -511,7 +508,6 @@ lib64/vendor.qti.hardware.data.dynamicdds@1.0.so
 lib64/vendor.qti.hardware.data.latency@1.0.so
 lib64/vendor.qti.hardware.factory@1.0.so
 lib64/vendor.qti.hardware.fingerprint@1.0.so
--lib64/vendor.qti.hardware.fm@1.0.so
 lib64/vendor.qti.hardware.iop@1.0.so
 lib64/vendor.qti.hardware.iop@2.0.so
 lib64/vendor.qti.hardware.perf@1.0.so
@@ -545,5 +541,11 @@ lib64/vendor.qti.ims.rcsconfig@1.0.so
 lib64/vendor.qti.imsrtpservice@1.0.so
 lib64/vendor.qti.latency@2.0.so
 lib64/vendor.qti.voiceprint@1.0.so
+
+# FM
 lib64/fm_helium.so
+lib64/libfm-hci.so
+-lib64/vendor.qti.hardware.fm@1.0.so
 lib/fm_helium.so
+lib/libfm-hci.so
+-lib/vendor.qti.hardware.fm@1.0.so

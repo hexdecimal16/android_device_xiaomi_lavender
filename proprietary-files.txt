@@ -1,3 +1,6 @@
+# Power-off charging daemon
+-sbin/charger:sbin/chargeonlymode;rootfs|f048d2cc20783ba1a608b73d440b3053af6ec9fd
+
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 -priv-app/ims/ims.apk
 -priv-app/dpmserviceapp/dpmserviceapp.apk

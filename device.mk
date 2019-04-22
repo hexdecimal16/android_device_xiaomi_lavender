@@ -142,6 +142,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     XiaomiParts
 
+# Display
+PRODUCT_PACKAGES += \
+    libvulkan \
+    libqdMetaData.system \
+    libdisplayconfig
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.opengles.version=196610 \
+    ro.sf.lcd_density=420
+
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \

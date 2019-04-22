@@ -59,6 +59,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     sys.autosuspend.timeout=500000
 
 # Audio
+PRODUCT_PACKAGES += \
+    audio.a2dp.default \
+    libaudio-resampler \
+    tinymix
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio/audio_policy.conf
 

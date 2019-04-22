@@ -96,6 +96,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.adm.buffering.ms=6
 
+# Common init scripts
+PRODUCT_PACKAGES += \
+    init.qcom.rc
+
 # Device fstab
 PRODUCT_PACKAGES += \
     fstab.qcom

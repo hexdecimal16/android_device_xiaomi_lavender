@@ -104,6 +104,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.adm.buffering.ms=6
 
+# Bluetooth
+PRODUCT_PROPERTY_OVERRIDES += \
+    qcom.bluetooth.soc=cherokee \
+    vendor.qcom.bluetooth.soc=cherokee
+
 # Common init scripts
 PRODUCT_PACKAGES += \
     init.qcom.rc

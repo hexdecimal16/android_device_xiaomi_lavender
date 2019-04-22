@@ -198,6 +198,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
 
+# Sensors
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.sensors.facing=false \
+    ro.vendor.sensors.cmc=false \
+    ro.vendor.sdk.sensors.gestures=false
+
 # Telephony
 PRODUCT_PACKAGES += \
     telephony-ext
@@ -205,9 +211,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     telephony-ext
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.radio.force_on_dc=true \
+    persist.vendor.qti.telephony.vt_cam_interface=1
+
 # TextClassifier smart selection model files
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
+
+# Trust HAL
+PRODUCT_PACKAGES += \
+    lineage.trust@1.0-service
 
 # VNDK
 PRODUCT_PACKAGES += \

@@ -159,6 +159,10 @@ PRODUCT_PACKAGES += \
     android.hidl.manager@1.0 \
     android.hidl.manager@1.0_system
 
+# IMS
+PRODUCT_PACKAGES += \
+    ims-ext-common
+
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/idc/uinput-fpc.idc:system/usr/idc/uinput-fpc.idc \
@@ -169,6 +173,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/sdm660-snd-card_Button_Jack.kl:system/usr/keylayout/sdm660-snd-card_Button_Jack.kl \
     $(LOCAL_PATH)/keylayout/uinput-fpc.kl:system/usr/keylayout/uinput-fpc.kl \
     $(LOCAL_PATH)/keylayout/uinput-goodix.kl:system/usr/keylayout/uinput-goodix.kl
+
+# Net
+PRODUCT_PACKAGES += \
+    netutils-wrapper-1.0
 
 # RCS
 PRODUCT_PACKAGES += \

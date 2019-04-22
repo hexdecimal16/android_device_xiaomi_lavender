@@ -118,6 +118,12 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 # Init
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
+# Keystore
+TARGET_PROVIDES_KEYMASTER := true
+
+# Lights
+TARGET_PROVIDES_LIBLIGHT := true
+
 # Mainfest
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/framework_compatibility_matrix.xml

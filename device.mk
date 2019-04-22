@@ -100,6 +100,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     fstab.qcom
 
+# Device-specific settings
+PRODUCT_PACKAGES += \
+    XiaomiParts
+
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \

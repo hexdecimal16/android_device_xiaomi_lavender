@@ -50,6 +50,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.multisim.config=dsds \
     sys.autosuspend.timeout=500000
 
+# Device fstab
+PRODUCT_PACKAGES += \
+    fstab.qcom
+
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \

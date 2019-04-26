@@ -109,9 +109,6 @@ SF_VSYNC_EVENT_PHASE_OFFSET_NS := 6000000
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
 
-# Extended Filesystem Support
-TARGET_EXFAT_DRIVER := sdfat
-
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
@@ -167,21 +164,14 @@ TARGET_RIL_VARIANT := caf
 BOARD_SYSTEMSDK_VERSIONS := 28
 
 # SELinux
-#include device/qcom/sepolicy/sepolicy.mk
-
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/qcom/sepolicy/private
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += device/qcom/sepolicy/public
 
 # Treble
-#BOARD_VNDK_RUNTIME_DISABLE := true
 BOARD_VNDK_VERSION := current
 PRODUCT_FULL_TREBLE_OVERRIDE := true
-
 TARGET_COPY_OUT_VENDOR := vendor
-
-# Security patch level
-VENDOR_SECURITY_PATCH := 2019-03-05
 
 # inherit from the proprietary version
 -include vendor/xiaomi/lavender/BoardConfigVendor.mk

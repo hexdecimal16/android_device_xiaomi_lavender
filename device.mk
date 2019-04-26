@@ -44,16 +44,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=libqti-perfd-client.so \
-    persist.vendor.radio.apm_sim_not_pwdn=1 \
-    persist.vendor.radio.sib16_support=1 \
-    persist.vendor.radio.custom_ecc=1 \
-    persist.vendor.radio.rat_on=combine \
-    persist.radio.schd.cache=3500 \
-    sys.vendor.shutdown.waittime=500 \
-    persist.radio.multisim.config=dsds \
-    sys.autosuspend.timeout=500000
+# Properties
+-include $(LOCAL_PATH)/system-props.mk
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -64,68 +56,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio/audio_policy.conf
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    af.fast_track_multiplier=1 \
-    vendor.audio_hal.period_size=192 \
-    ro.vendor.audio.sdk.fluencetype=fluence \
-    persist.vendor.audio.fluence.voicecall=true \
-    persist.vendor.audio.fluence.voicerec=false \
-    persist.vendor.audio.fluence.speaker=true \
-    vendor.audio.tunnel.encode=false \
-    persist.vendor.audio.ras.enabled=false \
-    vendor.audio.offload.buffer.size.kb=64 \
-    audio.offload.video=true \
-    vendor.audio.offload.track.enable=true \
-    audio.deep_buffer.media=true \
-    vendor.voice.path.for.pcm.voip=true \
-    vendor.audio.offload.multiaac.enable=true \
-    vendor.audio.dolby.ds2.enabled=false \
-    vendor.audio.dolby.ds2.hardbypass=false \
-    vendor.audio.offload.multiple.enabled=false \
-    vendor.audio.offload.passthrough=false \
-    ro.vendor.audio.sdk.ssr=false \
-    vendor.audio.offload.gapless.enabled=true \
-    vendor.audio.safx.pbe.enabled=true \
-    vendor.audio.parser.ip.buffer.size=262144 \
-    vendor.audio.flac.sw.decoder.24bit=true \
-    persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac \
-    vendor.audio.use.sw.alac.decoder=true \
-    vendor.audio.use.sw.ape.decoder=true \
-    vendor.audio.hw.aac.encoder=true \
-    vendor.audio.noisy.broadcast.delay=600 \
-    persist.vendor.audio.hifi.int_codec=true \
-    vendor.audio.offload.pstimeout.secs=3 \
-    ro.af.client_heap_size_kbyte=7168 \
-    persist.vendor.audio.hw.binder.size_kbyte=1024
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.audio.adm.buffering.ms=6
-
-# Bluetooth
-PRODUCT_PROPERTY_OVERRIDES += \
-    qcom.bluetooth.soc=cherokee \
-    vendor.qcom.bluetooth.soc=cherokee
-
 # Camera
 PRODUCT_PACKAGES += \
     Snap
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.hist.high=20 \
-    persist.camera.hist.drc=1.2 \
-    persist.camera.sat.enable=1 \
-    persist.vendor.camera.expose.aux=1 \
-    persist.vendor.camera.sat.enable=1 \
-    persist.camera.instant.aec=1 \
-    persist.vendor.camera.instant.aec=1 \
-    persist.vendor.camera.ae.instant.bound=20 \
-    persist.vendor.camera.set.afd=4 \
-    persist.camera.feature.cac=1 \
-    persist.vendor.camera.feature.cac=1 \
-    persist.camera.fovc.enable=1 \
-    persist.vendor.camera.fovc.enable=1 \
-    persist.vendor.dualcam.lpm.enable=1 \
-    persist.vendor.dualcam.defer.enable=1
 
 # Common init scripts
 PRODUCT_PACKAGES += \
@@ -144,10 +77,6 @@ PRODUCT_PACKAGES += \
     libvulkan \
     libqdMetaData.system \
     libdisplayconfig
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.opengles.version=196610 \
-    ro.sf.lcd_density=420
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -195,26 +124,12 @@ PRODUCT_PACKAGES += \
     rcs_service_api \
     rcs_service_api.xml
 
-# RIL
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
-
-# Sensors
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.sensors.facing=false \
-    ro.vendor.sensors.cmc=false \
-    ro.vendor.sdk.sensors.gestures=false
-
 # Telephony
 PRODUCT_PACKAGES += \
     telephony-ext
 
 PRODUCT_BOOT_JARS += \
     telephony-ext
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.radio.force_on_dc=true \
-    persist.vendor.qti.telephony.vt_cam_interface=1
 
 # TextClassifier smart selection model files
 PRODUCT_PACKAGES += \

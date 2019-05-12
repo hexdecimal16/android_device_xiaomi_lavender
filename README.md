@@ -1,4 +1,4 @@
-Copyright (C) 2018 - The LineageOS Project
+Copyright (C) 2019 - Aosp Extended
 
 Device tree for Xiaomi Redmi Note 7
 ==============

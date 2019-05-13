@@ -26,6 +26,9 @@ $(call inherit-product, vendor/xiaomi/lavender/lavender-vendor.mk)
 # Vendor properties
 -include $(LOCAL_PATH)/vendor_prop.mk
 
+# System properties
+-include $(LOCAL_PATH)/system_prop.mk
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay

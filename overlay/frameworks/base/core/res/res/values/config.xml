@@ -467,4 +467,7 @@
 
      <!-- Whether device has a physical display cutout -->
     <bool name="config_physicalDisplayCutout">true</bool>
+
+     <!-- Integrating Doze -->
+    <bool name="config_enableAutoPowerModes">true</bool>
 </resources>

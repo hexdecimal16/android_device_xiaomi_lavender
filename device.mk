@@ -21,8 +21,6 @@
 # definition file).
 #
 
-$(call inherit-product, vendor/xiaomi/lavender/lavender-vendor.mk)
-
 # Vendor properties
 -include $(LOCAL_PATH)/vendor_prop.mk
 
@@ -360,3 +358,6 @@ PRODUCT_BOOT_JARS += \
 # TextClassifier smart selection model files
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
+
+# Inherit vendor
+$(call inherit-product, vendor/xiaomi/lavender/lavender-vendor.mk)

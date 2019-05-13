@@ -360,6 +360,13 @@
         <item>3000</item>
         <item>3500</item>
         <item>4000</item>
+        <item>7000</item>
+        <item>10000</item>
+        <item>12500</item>
+        <item>15000</item>
+        <item>17500</item>
+        <item>20000</item>
+        <item>50000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -392,7 +399,14 @@
         <item>105</item>
         <item>200</item>
         <item>240</item>
-        <item>255</item>
+        <item>245</item>
+        <item>248</item>
+        <item>252</item>
+        <item>315</item>
+        <item>378</item>
+        <item>441</item>
+        <item>504</item>
+        <item>1259</item>
     </integer-array>
 
     <!-- Whether device supports double tap to wake -->

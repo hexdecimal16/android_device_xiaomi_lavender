@@ -473,6 +473,17 @@
     <!-- Flag indicating whether we should enable smart battery. -->
      <bool name="config_smart_battery_available">true</bool>
 
+    <!-- Lawnstep -->
+    <string name="config_recentsComponentName" translatable="false">ch.deletescape.lawnchair.ci/com.android.quickstep.RecentsActivity</string>
+
+    <!-- The device supports freeform window management. Windows have title bars and
+    can be moved and resized. If you set this to true, you also need to add PackageManager.
+    FEATURE_FREEFORM_WINDOW_MANAGEMENT feature to your device specification.
+    The duplication is necessary, because this information is used before the features are
+    available to the system.-->
+     <bool name="config_freeformWindowManagement">true</bool>
+    <bool name="config_useRoundIcon">true</bool>
+    
     <!-- Whether device ignores the RSSNR signal implementation -->
     <bool name="config_ignoreRssnrSignalLevel">true</bool>
 

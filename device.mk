@@ -363,5 +363,9 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
 
+# XiaomiParts
+PRODUCT_PACKAGES += \
+    XiaomiPartss
+
 # Inherit vendor
 $(call inherit-product, vendor/xiaomi/lavender/lavender-vendor.mk)

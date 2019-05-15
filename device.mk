@@ -155,6 +155,28 @@ PRODUCT_PACKAGES += \
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
+# Display
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl:64 \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.composer@2.1-impl:64 \
+    android.hardware.graphics.composer@2.1-service \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service \
+    copybit.sdm660 \
+    gralloc.sdm660 \
+    hwcomposer.sdm660 \
+    libdisplayconfig \
+    liboverlay \
+    libqdMetaData.system \
+    libtinyxml \
+    memtrack.sdm660
+
+PRODUCT_PACKAGES += \
+    android.hardware.configstore@1.0-service \
+    android.hardware.broadcastradio@1.0-impl
+
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
@@ -162,16 +184,6 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 # Properties
 -include $(LOCAL_PATH)/system-props.mk
-
-# Device-specific settings
-PRODUCT_PACKAGES += \
-    XiaomiParts
-
-# Display
-PRODUCT_PACKAGES += \
-    libvulkan \
-    libqdMetaData.system \
-    libdisplayconfig
 
 # Exclude TOF sensor from InputManager
 PRODUCT_COPY_FILES += \

@@ -177,11 +177,6 @@ PRODUCT_PACKAGES += \
     android.hardware.configstore@1.0-service \
     android.hardware.broadcastradio@1.0-impl
 
-# Override heap growth limit due to high display density on device
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapgrowthlimit=256m
-$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
-
 # Exclude TOF sensor from InputManager
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/excluded-input-devices.xml:system/etc/excluded-input-devices.xml \
@@ -223,6 +218,15 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl \
     $(LOCAL_PATH)/configs/keylayout/uinput-goodix.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-goodix.kl
 
+# Lawnchair
+PRODUCT_PACKAGES += \
+    Lawnchair \
+    LawnConf
+
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-service.xiaomi_sdm660
+
 # Low power Whitelist
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
@@ -244,67 +248,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_profiles_sdm660_v1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_sdm660_v1.xml \
     $(LOCAL_PATH)/configs/media/media_profiles_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml
 
-# Recovery
-PRODUCT_PACKAGES += \
-    librecovery_updater_lavender
-
-# Seccomp
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/seccomp/configstore@1.1.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/configstore@1.1.policy \
-    $(LOCAL_PATH)/configs/seccomp/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
-    $(LOCAL_PATH)/configs/seccomp/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
-
-# Lawnchair
-PRODUCT_PACKAGES += \
-    Lawnchair \
-    LawnConf
-
-# Sensors
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
-
-# VNDK
-PRODUCT_PACKAGES += vndk-sp
-
-# VR
-PRODUCT_PACKAGES += \
-    android.hardware.vr@1.0-impl \
-    android.hardware.vr@1.0-service \
-    vr.sdm660
-
-# WiFi
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
-    $(LOCAL_PATH)/configs/wifi/fstman.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/fstman.ini \
-    $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
-    $(LOCAL_PATH)/configs/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
-    $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
-
-# Wi-Fi Display
-PRODUCT_BOOT_JARS += \
-    WfdCommon
-
-# FM
-PRODUCT_PACKAGES += \
-    FM2 \
-    libqcomfm_jni \
-    qcom.fmradio
-
-# HIDL
-PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.base@1.0_system \
-    android.hidl.manager@1.0 \
-    android.hidl.manager@1.0_system
-
-# IMS
-PRODUCT_PACKAGES += \
-    ims-ext-common
-
-# Lights
-PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.xiaomi_sdm660
-
 # Net
 PRODUCT_PACKAGES += \
     android.system.net.netd@1.0 \
@@ -324,6 +267,11 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     libOmxVenc \
     libstagefrighthw
+
+# Override heap growth limit due to high display density on device
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapgrowthlimit=256m
+$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 # Power
 PRODUCT_PACKAGES += \
@@ -387,11 +335,19 @@ PRODUCT_PACKAGES += \
     rcs_service_api \
     rcs_service_api.xml
 
-
-# Vibrator
+# Recovery
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl \
-    android.hardware.vibrator@1.0-service
+    librecovery_updater_lavender
+
+# Seccomp
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/seccomp/configstore@1.1.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/configstore@1.1.policy \
+    $(LOCAL_PATH)/configs/seccomp/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
+    $(LOCAL_PATH)/configs/seccomp/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
+
+# Sensors
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
 
 # Telephony
 PRODUCT_PACKAGES += \
@@ -409,6 +365,49 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl \
     android.hardware.thermal@1.0-service \
     thermal.sdm660
+
+# VNDK
+PRODUCT_PACKAGES += vndk-sp
+
+# VR
+PRODUCT_PACKAGES += \
+    android.hardware.vr@1.0-impl \
+    android.hardware.vr@1.0-service \
+    vr.sdm660
+
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl \
+    android.hardware.vibrator@1.0-service
+
+# WiFi
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
+    $(LOCAL_PATH)/configs/wifi/fstman.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/fstman.ini \
+    $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
+    $(LOCAL_PATH)/configs/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
+    $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
+
+# Wi-Fi Display
+PRODUCT_BOOT_JARS += \
+    WfdCommon
+
+# FM
+PRODUCT_PACKAGES += \
+    FM2 \
+    libqcomfm_jni \
+    qcom.fmradio
+
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.base@1.0_system \
+    android.hidl.manager@1.0 \
+    android.hidl.manager@1.0_system
+
+# IMS
+PRODUCT_PACKAGES += \
+    ims-ext-common
 
 # XiaomiParts
 PRODUCT_PACKAGES += \

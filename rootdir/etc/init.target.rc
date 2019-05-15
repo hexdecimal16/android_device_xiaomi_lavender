@@ -66,6 +66,7 @@ on post-fs
     start vendor.qseecomd
     exec - system system -- /vendor/bin/init.qti.qseecomd.sh
     write /dev/ipa 1
+    insmod /vendor/lib/modules/exfat.ko
 
 on init
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
@@ -121,8 +122,14 @@ on boot
 #Create folder dump yuv images while debugging
     mkdir /data/vendor/camera 0770 camera camera
 
+    # Double Tap to Wake
+    chown system system /proc/tp_gesture
+    chmod 0660 /proc/tp_gesture
+
 #Load WLAN driver
    insmod /vendor/lib/modules/qca_cld3_wlan.ko
+   chown wifi wifi /sys/module/wlan/parameters/fwpath
+
 #USB controller configuration
     setprop vendor.usb.rndis.func.name "rndis_bam"
     setprop vendor.usb.rmnet.func.name "rmnet_bam"
@@ -441,6 +448,28 @@ service cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
    group system wifi inet sdcard_rw media_rw diag
    oneshot
 
+#Modify a way to collect wlan logs and default closed the logs in consumer
+service cnss_diag_system  /system/bin/cnss_diag_system -q -f -t HELIUM
+   class main
+   user system
+   group system wifi inet sdcard_rw media_rw diag
+   oneshot
+   disabled
+
+#Add for collect tcpdump to debug wifi access internet issue
+service vendor.tcpdump /system/xbin/tcpdump -i wlan0 -s 0 -vv -W 5 -C 20 -w /sdcard/wlan_logs/tcpdump.pcap
+    class main
+    user  root
+    group root wifi inet net_admin sdcard_rw media_rw diag
+    disabled
+    oneshot
+
+on property:sys.cnss_diag_system.log=1
+    start cnss_diag_system
+    start vendor.tcpdump
+on property:persist.cnss_diag_system.log=1
+    start cnss_diag_system
+
 service vendor.ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
    class main
    user system
@@ -725,30 +754,6 @@ on property:persist.sys.display_cabc=2
 
 #on property:persist.sys.display_gamma=2
 #    write /sys/class/graphics/fb0/msm_fb_gamma 2
-
-on property:persist.sys.display_cabc_movie=1
-    write /sys/class/graphics/fb0/msm_fb_cabc_movie 1
-
-on property:persist.sys.display_cabc_movie=2
-    write /sys/class/graphics/fb0/msm_fb_cabc_movie 2
-
-on property:persist.sys.display_cabc_still=1
-    write /sys/class/graphics/fb0/msm_fb_cabc_still 1
-
-on property:persist.sys.display_cabc_still=2
-    write /sys/class/graphics/fb0/msm_fb_cabc_still 2
-
-on property:sys.hbm_mode=1
-    write /sys/class/graphics/fb0/msm_fb_hbm 1
-
-on property:sys.hbm_mode=2
-    write /sys/class/graphics/fb0/msm_fb_hbm 2
-
-on property:sys.hbm_mode=3
-    write /sys/class/graphics/fb0/msm_fb_hbm 3
-
-on property:sys.hbm_mode=0
-    write /sys/class/graphics/fb0/msm_fb_hbm 0
 
 service adswitch /vendor/bin/adswitch
     user root

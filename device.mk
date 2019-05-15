@@ -146,6 +146,11 @@ PRODUCT_PACKAGES += \
     libxml2 \
     Snap
 
+# CNE
+PRODUCT_PACKAGES += \
+    cneapiclient \
+    com.quicinc.cne
+
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi

@@ -52,6 +52,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.cne.feature=1 \
     persist.vendor.cne.feature=1 \
     camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.qualcomm.qti.qmmi,com.longcheertel.cit \
+    camera.hal1.packagelist=com.whatsapp,com.facebook.katana,com.instagram.android,com.snapchat.android,com.gbwhatsapp \
     dalvik.vm.heapstartsize=8m \
     persist.sys.camera.camera2=true \
     persist.vendor.camera.HAL3.enabled=1 \

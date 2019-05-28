@@ -56,7 +56,7 @@ BOARD_RAMDISK_OFFSET     := 0x01000000
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_SOURCE := kernel/xiaomi/lavender
-TARGET_KERNEL_CONFIG := Evira_defconfig
+TARGET_KERNEL_CONFIG := lavender-perf_defconfig
 TARGET_KERNEL_VERSION := 4.4
 
 # QCOM hardware
